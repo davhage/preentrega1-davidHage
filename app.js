@@ -3,16 +3,20 @@
 */
 alert('Selecciona un plazo de 1, 3, 5 o 10 años');
 alert('Las tasas de interes son de: \n1 año 8% \n3 años 10% \n5 años 14% \n10 años 22%');
-let term = parseInt(prompt(`Selecciona: \n1 para 1 año \n2 para 3 años \n3 para 5 años \n4 para 10 años`));
-let quantity = parseInt(prompt(`Cuanto deseas invertir?`));
+
 let rate;
 
 const investing = (a, b) => (a * b).toFixed(2);
 
 
 const interestRate = () => {
+    let term = parseInt(prompt(`Selecciona: \n1 para 1 año \n2 para 3 años \n3 para 5 años \n4 para 10 años`));
+    let quantity = parseInt(prompt(`Cuanto deseas invertir?`));
+
+
     if(isNaN(term) || isNaN(quantity)) {
         alert('Por favor ingresa valores válidos');
+        interestRate();
         return;
     }
     if(term === 1){
@@ -29,6 +33,7 @@ const interestRate = () => {
         alert(`Tu inversión despues de 4 años seria de ${investing(rate,quantity)} pesos`);
     } else {
         alert('Por favor selecciona una de las opciones');
+        interestRate();
     }  
 }
 interestRate();
